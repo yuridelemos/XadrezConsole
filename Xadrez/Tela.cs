@@ -1,5 +1,7 @@
 ﻿using System;
 using tabuleiro;
+using xadrez;
+
 namespace Xadrez
 {
     class Tela
@@ -18,13 +20,21 @@ namespace Xadrez
                     }
                     else
                     {
-                        imprimirPeca(tab.peca(i, j));
+                        imprimirPeca(tab.peca(i,  j));
                         Console.Write(" ");
                     }
                 }
                 Console.WriteLine();
             }
             Console.WriteLine("  a b c d e f g h");
+        }
+
+        public static PosicaoXadrez lerPosicaoXadrez()
+        {
+            string s = Console.ReadLine();
+            char coluna = s[0];
+            int linha = int.Parse(s[1] + ""); //transforma em char
+            return new PosicaoXadrez(coluna, linha);
         }
 
         public static void imprimirPeca(Peca peca)
